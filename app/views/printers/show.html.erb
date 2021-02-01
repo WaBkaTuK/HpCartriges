@@ -1,0 +1,7 @@
+<h1><%= @printer.title %></h1>
+<p><%= @printer.description %></p>
+<div class="list-item_img"><%= image_tag("printers/#{@printer.photo}") %></div>
+<p>Совместимый картридж: <%= @printer.cartrige.title %></p>
+
+
+<p><%= link_to "Назад к списку", printers_path %></p>

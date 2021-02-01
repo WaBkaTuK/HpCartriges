@@ -1,0 +1,24 @@
+<h1>Все принтеры</h1>
+<p><%= link_to "Добавить принтер", new_printer_path %></p>
+
+  <div class="d-flex h-list-start wrap width-1400 center">
+    <% @printers.each do | printer | %>
+      <div class="list-item">
+        <div class="list-item_img">
+          <%= image_tag("printers/#{printer.photo}") %>
+        </div>
+        <div>
+          <p>
+            <strong>Название:</strong>
+            <%= printer.title %>
+          </p>
+        </div>
+        <div>
+          <%= link_to "Подробнее", printer_path(printer) %>
+          <%= link_to "Изменить", edit_printer_path(printer) %>
+          <%= link_to "Удалить", printer_path(printer), method: :delete, data: { confirm: 'Вы уверены?' } %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>

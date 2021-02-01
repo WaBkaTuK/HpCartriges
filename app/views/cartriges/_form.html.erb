@@ -1,0 +1,78 @@
+<%= form_with model: @cartrige,enctype: "multipart/form-data" ,local: true do | form | %>
+<div>
+  <p>
+    <%= form.label :title, "Название" %>
+    <br>
+    <%= form.text_field :title %>
+  </p>
+  <% if @cartrige.errors[:title].any?  %>
+    <p class='error-hints'>
+      <ul>
+        <% @cartrige.errors[:title].each do | m | %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </p>
+  <% end %>
+</div>
+<div>
+  <p>
+    <%= form.label :description, "Описание" %>
+    <br>
+    <%= form.text_area :description %>
+  </p>
+  <% if @cartrige.errors[:description].any?  %>
+    <p class='error-hints'>
+      <ul>
+        <% @cartrige.errors[:description].each do | m | %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </p>
+  <% end %>
+</div>
+<div>
+  <p>
+    <%= form.label :color, "Цвет" %>
+    <br>
+    <%= form.text_field :color %>
+  </p>
+  <% if @cartrige.errors[:color].any?  %>
+    <p class='error-hints'>
+      <ul>
+        <% @cartrige.errors[:color].each do | m | %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </p>
+  <% end %>
+</div>
+<div>
+  <p>
+    <%= form.label :resource, "Ресурс" %>
+    <br>
+    <%= form.number_field :resource %>
+  </p>
+  <% if @cartrige.errors[:resource].any?  %>
+    <p class='error-hints'>
+      <ul>
+        <% @cartrige.errors[:resource].each do | m | %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </p>
+  <% end %>
+</div>
+<div>
+  <p>
+    <%= form.label :photo, "Изображение" %>
+    <br>
+    <%= form.file_field :photo %>
+  </p>
+</div>
+<div>
+  <p>
+    <%= form.submit "Сохранить" %>
+  </p>
+</div>
+<% end %>

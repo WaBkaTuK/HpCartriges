@@ -1,0 +1,24 @@
+<h2>Таблица совместимостей</h2>
+
+<div>
+  <table>
+    <tr>
+      <th>Картриджи</th>
+      <th>Принтеры</th>
+    </tr>
+    <% @cartriges.each do |c| %>
+      <tr>
+        <td><%= link_to c.title, cartrige_path(c) %></td>
+        <td>
+          <ul>
+            <% @curr_printers = Printer.where(cartrige_id: "#{c.id}").all
+          @curr_printers.each do |p| %>
+              <li><%= link_to p.title, printer_path(p) %></li>
+            <% end %>
+          </ul>
+
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,25 @@
+<h1>Все картриджи</h1>
+<p><%= link_to "Добавить картридж", new_cartrige_path %></p>
+<div class="d-flex h-list-start wrap width-1400 center">
+  <% @cartriges.each do | cartrige | %>
+    <div class="list-item">
+      <div class="list-item_img">
+        <%= image_tag("cartriges/#{cartrige.photo}") %>
+      </div>
+      <div>
+        <p>
+          <strong>Название:</strong>
+          <%= cartrige.title %>
+          <br>
+
+        </p>
+      </div>
+      <div>
+        <%= link_to "Подробнее", cartrige_path(cartrige) %>
+        <%= link_to "Изменить", edit_cartrige_path(cartrige) %>
+        <%= link_to "Удалить", cartrige_path(cartrige), method: :delete, data: { confirm: 'Вы уверены?' } %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

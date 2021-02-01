@@ -1,0 +1,2 @@
+module CartrigeHelper
+end

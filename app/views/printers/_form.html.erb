@@ -1,0 +1,63 @@
+<%= form_with model: @printer, local: true do | form | %>
+<div>
+  <p>
+    <%= form.label :title, "Модель" %>
+    <br>
+    <%= form.text_field :title %>
+  </p>
+    <% if @printer.errors[:title].any? %>
+       <p class="error-hints">
+         <ul>
+           <% @printer.errors[:title].each do | m | %>
+           <li><%= m %></li>
+           <% end %>
+         </ul>
+       </p>
+    <% end %>
+</div>
+<div>
+  <p>
+    <%= form.label :description, "Описание" %>
+    <br>
+    <%= form.text_area :description %>
+  </p>
+  <% if @printer.errors[:description].any? %>
+  <p class="error-hints">
+    <ul>
+      <% @printer.errors[:description].each do | m | %>
+      <li><%= m %></li>
+      <% end %>
+    </ul>
+  </p>
+  <% end %>
+</div>
+<div>
+  <p>
+    <%= form.label :cartrige_id, "Картридж" %>
+    <br>
+
+  <%= form.collection_select("cartrige_id",Cartrige.all,:id,:title, prompt: "Нет картриджа") %>
+  </p>
+  <% if @printer.errors[:cartrige_id ].any? %>
+  <p class="error-hints">
+    <ul>
+      <% @printer.errors[:cartrige_id].each do | m | %>
+      <li><%= m %></li>
+      <% end %>
+    </ul>
+  </p>
+  <% end %>
+</div>
+<div>
+  <p>
+    <%= form.label :photo, "Изображение" %>
+    <br>
+    <%= form.file_field :photo %>
+  </p>
+</div>
+<div>
+  <p>
+    <%= form.submit "Сохранить" %>
+  <p>
+</div>
+<% end %>

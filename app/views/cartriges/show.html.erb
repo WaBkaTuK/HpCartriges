@@ -1,0 +1,18 @@
+<h1><%= @cartrige.title %></h1>
+<p><%= @cartrige.description %></p>
+<p>Характеристики:</p>
+<ol>
+  <li>Цвет: <%= @cartrige.color %></li>
+  <li>Количество использований: <%= @cartrige.resource %> страниц</li>
+</ol>
+<div class="list-item_img"><%= image_tag("cartriges/#{@cartrige.photo}") %></div>
+<hr>
+<p>Подходит к принтерам:</p>
+<% @cartrige.printers.each do |p| %>
+<div>
+<p><%=link_to p.title, "/printers/#{p.id}"%></p>
+
+</div>
+<% end %>
+
+<p><%= link_to "Назад к списку", cartriges_path %></p>
